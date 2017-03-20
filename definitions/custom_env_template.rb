@@ -12,7 +12,7 @@ define :custom_env_template do
     owner params[:deploy][:user]
     group params[:deploy][:group]
     mode "0660"
-    variables :env => params[:env]
+    variables :env => params[:environment_variables]
     notifies :run, resources(:execute => "restart Rails app #{params[:application]} for custom env")
 
     only_if do
